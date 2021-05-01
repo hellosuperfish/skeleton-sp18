@@ -5,7 +5,7 @@ public class Planet {
     public double yyVel;
     public double mass;
     public String imgFileName;
-    public static double GravCons = 6.67E-11;
+    private static double GravCons = 6.67E-11;
 
     public Planet(double xP, double yP, double xV, double yV, double m, String img){
         this.xxPos = xP;
