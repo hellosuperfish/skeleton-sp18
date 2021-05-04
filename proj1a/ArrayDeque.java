@@ -84,7 +84,7 @@ public class ArrayDeque<T> {
         items[nextFirst + 1] = null;
         nextFirst += 1;
         dequeSize -= 1;
-        if (dequeSize / items.length <= useFactor) {
+        if (dequeSize / items.length <= useFactor && items.length > 16) {
             resize(items.length / 2);
         }
         return removed;
