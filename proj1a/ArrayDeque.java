@@ -16,17 +16,25 @@ public class ArrayDeque<T> {
 
     }
 
+
     //function to resize the array, and during each resize, the oder of the array is rearranged to
     //leaner, meaning that the first is always in the beginning.
     private void resize(int capacity) {
+
         T[] newItems = (T[]) new Object[capacity];
-        int firstLength = items.length - nextFirst - 1;
-        System.arraycopy(items, nextFirst + 1, newItems, 0, firstLength);
-        System.arraycopy(items, 0, newItems, firstLength, nextLast);
+        if (nextFirst > nextLast || (nextLast - nextFirst == 1 && dequeSize > 0)) {
+            int firstLength = items.length - nextFirst - 1;
+            System.arraycopy(items, nextFirst + 1, newItems, 0, firstLength);
+            System.arraycopy(items, 0, newItems, firstLength, nextLast);
+        } else {
+            System.arraycopy(items, nextFirst+1, newItems, 0, dequeSize);
+        }
         items = newItems;
         nextFirst = capacity - 1;
         nextLast = dequeSize;
     }
+
+
 
     // function to get the index before this index, useful in addFirst function to update nextFirst
     private int minusOne(int index) {
@@ -87,6 +95,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if (dequeSize == 0) {
+            return null;
+        }
         T removed = items[plusOne(nextFirst)];
         items[plusOne(nextFirst)] = null;
         nextFirst = plusOne(nextFirst);
@@ -98,6 +109,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
+        if (dequeSize == 0) {
+            return null;
+        }
         T removed = items[minusOne(nextLast)];
         items[minusOne(nextLast)] = null;
         nextLast = minusOne(nextLast);
@@ -115,8 +129,9 @@ public class ArrayDeque<T> {
                 return items[nextFirst + index + 1];
             }
             return items[index - firstLength];
-        }
+        } else {
         return null;
+        }
     }
 
 

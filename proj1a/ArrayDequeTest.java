@@ -19,6 +19,17 @@ public class ArrayDequeTest {
         int b = ad.removeLast();
         System.out.println("remove first " + a);
         System.out.println("remove last " + b);
+        System.out.println("The 0th item is " + ad.get(0) + ", the 7th item is " + ad.get(7));
+        ad.removeFirst();
+        ad.removeFirst();
+        ad.removeFirst();
+        ad.removeFirst();
+        ad.removeLast();
+        ad.removeLast();
+        ad.removeLast();
+        System.out.println("size is " + ad.size());
+        ad.removeLast();
+        System.out.println("size is " + ad.size());
     }
 
     public static void main(String[] args) {
