@@ -36,6 +36,13 @@ public class ArrayDeque<T> {
         return index - 1;
     }
 
+    private int plusOne(int index) {
+        if (index == items.length - 1) {
+            return 0;
+        }
+        return index + 1;
+    }
+
     public void addFirst(T item) {
         if (dequeSize == items.length) {
             resize(items.length * 2);
@@ -58,7 +65,7 @@ public class ArrayDeque<T> {
             nextFirst = minusOne(0);
         }
         items[nextLast] = item;
-        nextLast += 1;
+        nextLast = plusOne(nextLast);
         dequeSize += 1;
     }
 
@@ -80,22 +87,22 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
-        T removed = items[nextFirst + 1];
-        items[nextFirst + 1] = null;
-        nextFirst += 1;
+        T removed = items[plusOne(nextFirst)];
+        items[plusOne(nextFirst)] = null;
+        nextFirst = plusOne(nextFirst);
         dequeSize -= 1;
-        if (dequeSize / items.length <= useFactor && items.length > 16) {
+        if ((double) dequeSize / items.length <= useFactor && items.length >= 16) {
             resize(items.length / 2);
         }
         return removed;
     }
 
     public T removeLast() {
-        T removed = items[nextLast - 1];
-        items[nextLast - 1] = null;
-        nextLast -= 1;
+        T removed = items[minusOne(nextLast)];
+        items[minusOne(nextLast)] = null;
+        nextLast = minusOne(nextLast);
         dequeSize -= 1;
-        if (dequeSize / items.length <= useFactor) {
+        if ((double) dequeSize / items.length <= useFactor && items.length >= 16) {
             resize(items.length / 2);
         }
         return removed;

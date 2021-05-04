@@ -14,6 +14,11 @@ public class ArrayDequeTest {
 
         ad.addLast(8);
         System.out.println("size is " + ad.size());
+
+        int a = ad.removeFirst();
+        int b = ad.removeLast();
+        System.out.println("remove first " + a);
+        System.out.println("remove last " + b);
     }
 
     public static void main(String[] args) {
