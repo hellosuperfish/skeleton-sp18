@@ -20,7 +20,7 @@ public class ArrayDeque<T> {
     //leaner, meaning that the first is always in the beginning.
     private void resize(int capacity) {
         T[] newItems = (T[]) new Object[capacity];
-        int firstLength = items.length - nextFirst -1;
+        int firstLength = items.length - nextFirst - 1;
         System.arraycopy(items, nextFirst + 1, newItems, 0, firstLength);
         System.arraycopy(items, 0, newItems, firstLength, nextLast);
         items = newItems;
@@ -41,7 +41,7 @@ public class ArrayDeque<T> {
             resize(items.length * 2);
         }
 
-        if(dequeSize == 0){
+        if (dequeSize == 0) {
             nextLast += 1;
         }
         items[nextFirst] = item;
@@ -54,7 +54,7 @@ public class ArrayDeque<T> {
         if (dequeSize == items.length) {
             resize(dequeSize * 2);
         }
-        if(dequeSize == 0){
+        if (dequeSize == 0) {
             nextFirst = minusOne(0);
         }
         items[nextLast] = item;
@@ -102,9 +102,9 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        int firstLength = items.length - nextFirst;
+        int firstLength = items.length - nextFirst - 1;
         if (index < firstLength) {
-            return items[nextFirst + index];
+            return items[nextFirst + index + 1];
         }
         return items[index - firstLength];
     }
