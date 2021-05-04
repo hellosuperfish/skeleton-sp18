@@ -74,7 +74,7 @@ public class ArrayDeque<T> {
     public T removeFirst() {
         T removed = items[nextFirst + 1];
         items[nextFirst + 1] = null;
-        nextFirst += 1
+        nextFirst += 1;
         dequeSize -= 1;
         if (dequeSize / items.length <= useFactor) {
             resize(items.length / 2);
