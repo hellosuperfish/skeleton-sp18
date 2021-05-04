@@ -23,13 +23,6 @@ public class LinkedListDeque<T> {
         dequeSize = 0;
     }
 
-    //constructor for list of one item
-    public LinkedListDeque(T item) {
-        sentinel = new ItemNode((T) null, sentinel, sentinel);
-        sentinel.next = new ItemNode(item, sentinel, sentinel);
-        sentinel.prev = sentinel.next;
-        dequeSize = 1;
-    }
 
     public void addFirst(T item) {
         if (sentinel.next == null) {
@@ -99,11 +92,11 @@ public class LinkedListDeque<T> {
         return p.item;
     }
 
-    public T getRecursive(int index, ItemNode p) {
+    private T getRecursiveHelper(int index, ItemNode p) {
         if (index == 0) {
             return p.item;
         }
-        return getRecursive(index - 1, p.next);
+        return getRecursiveHelper(index - 1, p.next);
     }
 
     public T getRecursive(int index) {
@@ -112,7 +105,7 @@ public class LinkedListDeque<T> {
         } else if (index >= dequeSize) {
             System.out.println("Index out of bound");
         }
-        return getRecursive(index, sentinel.next);
+        return getRecursiveHelper(index, sentinel.next);
     }
 
 
