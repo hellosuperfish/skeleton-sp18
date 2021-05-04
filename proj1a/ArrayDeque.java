@@ -3,6 +3,8 @@ import java.util.Deque;
 public class ArrayDeque<T> {
     private int DequeSize;
     private T[] items;
+    private int nextFirst;
+    private int nextLase;
     private double UseFactor = 0.25;
 
 
