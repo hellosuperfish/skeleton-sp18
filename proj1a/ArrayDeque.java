@@ -27,7 +27,7 @@ public class ArrayDeque<T> {
             System.arraycopy(items, nextFirst + 1, newItems, 0, firstLength);
             System.arraycopy(items, 0, newItems, firstLength, nextLast);
         } else {
-            System.arraycopy(items, nextFirst+1, newItems, 0, dequeSize);
+            System.arraycopy(items, nextFirst + 1, newItems, 0, dequeSize);
         }
         items = newItems;
         nextFirst = capacity - 1;
@@ -103,6 +103,7 @@ public class ArrayDeque<T> {
         nextFirst = plusOne(nextFirst);
         dequeSize -= 1;
         if (dequeSize == 0) {
+            nextFirst = 0;
             nextLast = 0;
         }
         if ((double) dequeSize / items.length <= useFactor && items.length >= 16) {
@@ -120,7 +121,8 @@ public class ArrayDeque<T> {
         nextLast = minusOne(nextLast);
         dequeSize -= 1;
         if (dequeSize == 0) {
-           nextFirst = 0;
+            nextFirst = 0;
+            nextLast = 0;
         }
         if ((double) dequeSize / items.length <= useFactor && items.length >= 16) {
             resize(items.length / 2);
@@ -136,7 +138,7 @@ public class ArrayDeque<T> {
             }
             return items[index - firstLength];
         } else {
-        return null;
+            return null;
         }
     }
 

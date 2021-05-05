@@ -33,24 +33,8 @@ public class ArrayDequeTest {
     }
 
     private static void testRemove() {
-        ArrayDeque<Integer> AD = new ArrayDeque<>();
-        AD.addFirst(0);
-        AD.addLast(1);
-        AD.addFirst(2);
-        AD.removeFirst();
-        AD.removeLast();
-        AD.removeLast();
-        AD.addLast(6);
-        AD.get(0);
-        AD.removeLast();
-        AD.addLast(9);
-        AD.removeFirst();
-        AD.addLast(11);
-        AD.addFirst(12);
-        AD.addFirst(13);
-        AD.removeLast();
-        AD.removeFirst();
-        AD.removeLast();
+        ArrayDeque<Integer> A = new ArrayDeque<>();
+
     }
 
     public static void main(String[] args) {
