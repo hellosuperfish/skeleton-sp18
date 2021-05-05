@@ -34,6 +34,27 @@ public class ArrayDequeTest {
 
     private static void testRemove() {
         ArrayDeque<Integer> A = new ArrayDeque<>();
+        A.removeFirst();
+        A.addFirst(2);
+        A.addLast(3);
+        A.addFirst(4);
+        A.removeFirst();
+        A.removeFirst();
+        A.addLast(7);
+        A.addLast(8);
+        A.addFirst(9);
+        A.get(1);
+        A.addFirst(11);
+        A.addLast(12);
+        A.get(5);
+        A.get(4);
+        A.addLast(15);
+        A.addLast(16);
+        A.removeFirst();
+        A.addLast(18);
+        A.addFirst(19);
+        A.removeFirst();
+        A.removeFirst();
 
     }
 
