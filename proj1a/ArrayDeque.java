@@ -102,6 +102,9 @@ public class ArrayDeque<T> {
         items[plusOne(nextFirst)] = null;
         nextFirst = plusOne(nextFirst);
         dequeSize -= 1;
+        if (dequeSize == 0) {
+            nextLast = 0;
+        }
         if ((double) dequeSize / items.length <= useFactor && items.length >= 16) {
             resize(items.length / 2);
         }
@@ -116,6 +119,9 @@ public class ArrayDeque<T> {
         items[minusOne(nextLast)] = null;
         nextLast = minusOne(nextLast);
         dequeSize -= 1;
+        if (dequeSize == 0) {
+           nextFirst = 0;
+        }
         if ((double) dequeSize / items.length <= useFactor && items.length >= 16) {
             resize(items.length / 2);
         }
