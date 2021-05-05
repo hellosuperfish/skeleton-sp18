@@ -22,7 +22,8 @@ public class ArrayDeque<T> {
     private void resize(int capacity) {
 
         T[] newItems = (T[]) new Object[capacity];
-        if ((nextFirst > nextLast && nextLast != 0)|| (nextLast - nextFirst == 1 && dequeSize > 0)) {
+        if ((nextFirst > nextLast && nextLast != 0)
+                || (nextLast - nextFirst == 1 && dequeSize > 0)) {
             int firstLength = items.length - nextFirst - 1;
             System.arraycopy(items, plusOne(nextFirst), newItems, 0, firstLength);
             System.arraycopy(items, 0, newItems, firstLength, nextLast);
