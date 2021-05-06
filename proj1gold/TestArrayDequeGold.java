@@ -38,7 +38,7 @@ public class TestArrayDequeGold {
                 int al = ads.removeLast();
                 assertEquals("remove last has did not work this time", sl, al);
             }
-        } */
+        }
         StudentArrayDeque<Integer> sad1 = new StudentArrayDeque<Integer>();
         ArrayDequeSolution<Integer> ads1 = new ArrayDequeSolution<>();
 
