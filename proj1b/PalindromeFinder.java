@@ -11,7 +11,8 @@ public class PalindromeFinder {
             if (word.length() >= minLength && palindrome.isPalindrome(word)) {
                 System.out.println(word);
             }
-        }
-    } //Uncomment this class once you've written isPalindrome.
+        } //Uncomment this class once you've written isPalindrome.
+
+    }
 
 }
