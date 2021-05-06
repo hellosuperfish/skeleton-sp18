@@ -33,7 +33,7 @@ public class Palindrome {
         return isPalindromeHelper(pDeck);
     }
 
-    private boolean isPalindromeHelper(Deque<Character> D){
+    private boolean isPalindromeHelper(Deque<Character> D) {
         if (D.size() == 0 || D.size() == 1) {
             return true;
         } else {

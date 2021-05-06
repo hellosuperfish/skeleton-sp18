@@ -1,7 +1,9 @@
-public class OffByOne implements CharacterComparator{
+public class OffByOne implements CharacterComparator {
     @Override
     public boolean equalChars(char x, char y) {
-        if (x - y == 1 || y - x == 1){
+        char a = Character.toLowerCase(x);
+        char b = Character.toLowerCase(y);
+        if (a - b == 1 || b - a == 1) {
             return true;
         }
         return false;

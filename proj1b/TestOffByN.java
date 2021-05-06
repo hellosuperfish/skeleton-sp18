@@ -3,7 +3,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class testOffByN {
+public class TestOffByN {
 
     static CharacterComparator obn5 = new OffByN(5);
     static CharacterComparator obn0 = new OffByN(0);
